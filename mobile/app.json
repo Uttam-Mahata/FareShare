@@ -1,0 +1,25 @@
+{
+  "expo": {
+    "name": "CommuteSplit",
+    "slug": "commute-split",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "userInterfaceStyle": "light",
+    "ios": {
+      "supportsTablet": false,
+      "bundleIdentifier": "com.commutesplit.app",
+      "infoPlist": {
+        "UIBackgroundModes": ["fetch", "processing"]
+      }
+    },
+    "android": {
+      "adaptiveIcon": {
+        "backgroundColor": "#1a73e8"
+      },
+      "package": "com.commutesplit.app"
+    },
+    "plugins": [
+      "react-native-background-fetch"
+    ]
+  }
+}

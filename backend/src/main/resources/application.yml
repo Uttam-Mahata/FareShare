@@ -1,0 +1,43 @@
+spring:
+  application:
+    name: commute-split-backend
+  datasource:
+    url: ${AZURE_SQL_URL}
+    username: ${AZURE_SQL_USER}
+    password: ${AZURE_SQL_PASSWORD}
+    driver-class-name: com.microsoft.sqlserver.jdbc.SQLServerDriver
+    hikari:
+      connection-timeout: 200000
+      initialization-fail-timeout: -1
+      minimum-idle: 0
+      connection-test-query: SELECT 1
+      max-lifetime: 600000
+      idle-timeout: 300000
+      maximum-pool-size: 5
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: false
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.SQLServerDialect
+        boot:
+          allow_jdbc_metadata_access: false
+        jdbc:
+          batch_size: 20
+        order_inserts: true
+
+app:
+  jwt:
+    secret: ${JWT_SECRET}
+    expiration-ms: 2592000000
+
+server:
+  port: ${PORT:8080}
+  error:
+    include-message: always
+
+logging:
+  level:
+    com.commutesplit: INFO
+    org.springframework.security: WARN
